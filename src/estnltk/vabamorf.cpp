@@ -13,6 +13,17 @@ of any kind, either express or implied.
 #include "vabamorf.h"
 #include "silp.h"
 
+static void __init_so() __attribute__((constructor)); // obviously for g++ only
+
+static void __init_so() {
+    FSCInit();
+}
+
+static void __destr_so() __attribute__((destructor)); // obviously for g++ only
+
+static void __destr_so() {
+    FSCTerminate();
+}
 
 //////////////////////////////////////////////////////////////////////
 // DATA STRUCTURES
